@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import useScript from '../hooks/useScript';
+import Autocomplete from './Autocomplete';
 import Map from './Map';
 
 declare const GMaps: Record<string, unknown>;
@@ -19,7 +20,10 @@ const App = (): JSX.Element => {
   return (
     <>
       {status === 'ready' && (
-        <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />
+        <>
+          <Autocomplete />
+          <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={false} />
+        </>
       )}
     </>
   );

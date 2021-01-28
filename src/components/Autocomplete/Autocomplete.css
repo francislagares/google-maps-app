@@ -1,0 +1,52 @@
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+}
+
+.search {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  z-index: 10;
+}
+
+.search input {
+  width: 100%;
+  padding: .5rem;
+  font-size: 1.5rem;
+}
+
+.search ul {
+  width: 104%;
+  margin: 0;
+  padding: .5rem;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  background: white;
+  list-style: none;
+}
+
+.search ul li {
+  padding: .5rem;
+}
+
+.search ul li:hover {
+  background-color: black;
+  color: white;
+}
