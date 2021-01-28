@@ -26,46 +26,64 @@ A Google Maps implementation with React, Redux, TypeScript and Hooks.
 
 Currently: _in development_
 
+# Pre-requisites
+
+## API Keys
+
+For this demo to work, please create a Google Map API Key, and ensure that the services below are enabled... otherwise it won't work! <br /> This API key must be in the environment variable `REACT_APP_GOOGLE_PLACES_API_KEY`.
+
+- Maps JavaScript API
+- Places API
+- Geocoding API
+
 
 # Development
 
 ## Available Scripts
 
-Install the dependencies by running the following command.
+- Clone the repo
 
-```bash
-yarn install
-```
+  ```bash
+  $ git clone https://github.com/francislagares/google-maps-app.git
+  ```
 
-Start the development server:
+- Install the dependencies by running the following command.
 
-```bash
-yarn start
-```
+  ```bash
+  yarn install
+  ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
+- Start the development server:
+
+  ```bash
+  yarn start
+  ```
+
+  Open [http://localhost:3000](http://localhost:3000) with your browser to see the
+  result.
 
 
 # Docker
 
-Building an image
+- Building an image
 
-```bash
-$ docker-compose build
-```
+  ```bash
+  $ docker-compose build
+  ```
 
-Running a container
+- Running a container
 
-```bash
-$ docker-compose up
-```
+  ```bash
+  $ docker-compose up
+  ```
+  Open [http://localhost:3000](http://localhost:3000) with your browser to see the
+  result.
 
-Stopping a container
+- Stopping a container
 
-```bash
-$ docker-compose down
-```
+  ```bash
+  $ docker-compose down
+  ```
 # Author
 
 
