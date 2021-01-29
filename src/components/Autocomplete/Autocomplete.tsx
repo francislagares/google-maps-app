@@ -5,11 +5,13 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from 'use-places-autocomplete';
+import { AutocompletePrediction } from '../../types/Autocomplete';
 import { Change } from '../../types/Events';
 
 import './Autocomplete.css';
 
 const Autocomplete = (): JSX.Element => {
+  console.log('autocomplete');
   const {
     ready,
     value,
@@ -20,7 +22,7 @@ const Autocomplete = (): JSX.Element => {
     debounce: 300,
   });
 
-  const ref = useOnclickOutside(() => {
+  const searchRef = useOnclickOutside(() => {
     // When user clicks outside of the component, we can dismiss
     // the searched suggestions by calling this method
     clearSuggestions();
@@ -31,7 +33,7 @@ const Autocomplete = (): JSX.Element => {
     setValue(e.target.value);
   };
 
-  const handleSelect = ({ description }: any) => () => {
+  const handleSelect = ({ description }: AutocompletePrediction) => () => {
     // When user selects a place, we can replace the keyword without request data from API
     // by setting the second parameter to "false"
     setValue(description, false);
@@ -41,14 +43,15 @@ const Autocomplete = (): JSX.Element => {
     getGeocode({ address: description })
       .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        console.log('📍 Coordinates: ', { lat, lng });
+        // panTo({ lat, lng });
+        console.log('📍 Coordinates: ', { lat, lng }, description);
       })
       .catch(error => {
         console.log('😱 Error: ', error);
       });
   };
 
-  const renderSuggestions = () =>
+  const renderSuggestions = (): JSX.Element[] =>
     data.map(suggestion => {
       const {
         place_id,
@@ -67,7 +70,7 @@ const Autocomplete = (): JSX.Element => {
     });
 
   return (
-    <div className="search" ref={ref}>
+    <div className="search" ref={searchRef}>
       <input
         value={value}
         onChange={handleInput}
