@@ -8,7 +8,7 @@ const Map: React.FC<IMap> = ({
   mapType,
   mapTypeControl = false,
 }): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<GoogleMap>();
 
   const startMap = (): void => {
@@ -27,9 +27,9 @@ const Map: React.FC<IMap> = ({
   };
 
   const initMap = (zoomLevel: number, address: GoogleLatLng): void => {
-    if (ref.current) {
+    if (mapRef.current) {
       setMap(
-        new google.maps.Map(ref.current, {
+        new google.maps.Map(mapRef.current, {
           zoom: zoomLevel,
           center: address,
           mapTypeControl: mapTypeControl,
@@ -49,7 +49,7 @@ const Map: React.FC<IMap> = ({
 
   return (
     <div className="map-container">
-      <div ref={ref} className="map-container__map"></div>
+      <div ref={mapRef} className="map-container__map"></div>
     </div>
   );
 };
